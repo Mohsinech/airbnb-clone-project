@@ -1,152 +1,173 @@
-# airbnb-clone-project
+# Airbnb Clone Project
 
-## UI/UX Design Planning
-
-### 🌟 Design Goals
-
-The main goal of the UI/UX design in this project is to deliver an intuitive, visually engaging, and seamless experience for users browsing, viewing, and booking properties. The design is inspired by modern booking platforms and focuses on simplicity, responsiveness, and clarity.
-
-- Ensure easy navigation and minimal user friction.
-- Maintain a consistent and visually clean layout.
-- Optimize for mobile and desktop experiences.
-- Encourage users to complete bookings with minimal steps.
-- Enhance trust and clarity through thoughtful interface design.
+This project is a simplified clone of Airbnb, built to understand and implement full-stack web development principles. The goal is to replicate core functionalities of Airbnb such as property listing, user authentication, booking system, and secure payments.
 
 ---
 
-### 🔑 Key Features
+## 🚀 Project Goals
 
-- Property browsing with filters and map integration.
-- Detailed property view with rich media and key amenities.
-- Simple, guided checkout flow for reservations.
-- Responsive design across devices.
-- Clear feedback messages and loading states.
-- Accessibility-conscious design.
-
----
-
-### 🛍️ Primary Pages Overview
-
-| Page Name              | Description |
-|------------------------|-------------|
-| **Property Listing View** | A grid or list layout displaying all available properties. Users can filter by location, price, and amenities. Each card shows a preview image, title, rating, and price per night. |
-| **Listing Detailed View** | Displays comprehensive information about a selected property, including a photo carousel, description, amenities, reviews, host profile, and a “Book Now” button. Designed for deep engagement and trust-building. |
-| **Simple Checkout View**  | A streamlined, minimal form guiding the user through booking confirmation. Includes date selection, guest info, price summary, and payment method. Designed for clarity and conversion. |
+- Build a scalable and maintainable full-stack web application.
+- Practice team collaboration and real-world software development workflows.
+- Implement authentication, booking, and search features.
+- Use secure and modern APIs.
+- Follow agile methodology and CI/CD practices.
 
 ---
 
-### 💡 Why User-Friendly Design Matters
+## 🧑‍🤝‍🧑 Team Roles
 
-In a booking system, the UI/UX is central to trust and usability. A poorly designed interface can cause confusion, hesitation, or abandonment. Prioritizing user-friendly design ensures:
+### Backend Developer
+Responsible for developing the server-side logic, RESTful APIs, authentication, and managing interactions with the database.
 
-- Faster decisions with clear call-to-actions.
-- Reduced errors and friction in the booking process.
-- Higher conversion rates and return visits.
-- Enhanced user satisfaction and credibility.
+### Frontend Developer
+Handles the client-side logic and designs responsive interfaces for users to interact with the system.
 
----
+### Database Administrator (DBA)
+Designs and manages the database schema, ensures data integrity, and optimizes database performance.
 
-### 🖋️ Design Tokens from Figma
+### DevOps Engineer
+Manages CI/CD pipelines, automates deployments, and ensures the system runs smoothly in development and production environments.
 
-#### ✨ Color Styles (from Figma)
-- Primary Color: #34967C
-- Secondary Color 1: #161117
-- Secondary Color 2: #FFA800
-- White: #F1F1F1
-
-#### 🎨 Typography (from Figma)
-- **Font Families:**
-  - Source Sans Pro
-  - Quicksand
-- **Headings:**
-  - H1: 36px, Bold
-  - H2: 28px, Semi-Bold
-  - H3: 20px, Medium
-- **Body Text:**
-  - Size: 16px, Regular
-  - Line Height: 24px
-- **Buttons:**
-  - Size: 14px, Bold
-
-#### 🔍 Why It Matters
-
-Understanding and identifying the design properties of a mockup in Figma ensures consistency in implementation. By extracting key design tokens such as colors, fonts, and spacing values, developers can:
-
-- Maintain visual consistency throughout the application
-- Improve collaboration between designers and developers
-- Speed up development by referencing centralized design values
-- Ensure accessibility and usability through careful use of typography and contrast
-
-These decisions lay the foundation for a maintainable and scalable UI system.
+### Project Manager
+Oversees the project lifecycle, coordinates between team members, manages deadlines, and ensures that project goals are met.
 
 ---
 
-## 📆 Project Roles and Responsibilities
+## 🛠️ Technology Stack
 
-### 💼 Project Manager
-- Oversees the entire project lifecycle and timeline.
-- Coordinates tasks across teams and resolves blockers.
-- Communicates progress and risks to stakeholders.
-- Ensures the team meets deadlines and project goals.
+| Technology    | Purpose |
+|---------------|---------|
+| **Django**    | Backend web framework to build robust APIs and handle business logic. |
+| **PostgreSQL**| Relational database for storing structured data such as users, properties, and bookings. |
+| **GraphQL**   | Used optionally to allow clients to request specific data from the backend. |
+| **React**     | Frontend library for building responsive user interfaces. |
+| **Tailwind CSS** | Utility-first CSS framework for fast and consistent styling. |
+| **Docker**    | Containerization tool for deploying the application consistently across environments. |
+| **GitHub Actions** | Automates CI/CD pipelines for testing, building, and deploying the application. |
 
-### 🛠️ Frontend Developers
-- Implement the user interface using React, Tailwind CSS, and other tools.
-- Integrate UI with backend services and APIs.
-- Ensure responsiveness and performance across devices.
-- Collaborate with designers for pixel-perfect implementation.
+---
 
-### 📁 Backend Developers
-- Design and implement APIs using Node.js and Express.
-- Connect and manage the MongoDB database.
-- Handle authentication, authorization, and server logic.
-- Ensure data security, scalability, and performance.
+## 🧩 Database Design
 
-### 🎨 Designers
-- Create wireframes, mockups, and design systems in Figma.
-- Define visual language including colors, typography, and layout.
-- Ensure design accessibility and user flow optimization.
-- Work closely with developers for design handoff and feedback.
+### Entities and Fields:
 
-### 🔧 QA/Testers
-- Test the application for bugs, usability, and performance.
-- Write test cases for frontend and backend features.
-- Report issues and verify fixes before release.
-- Ensure cross-browser and cross-device functionality.
+#### Users
+- `id`
+- `name`
+- `email`
+- `password`
+- `is_host`
 
-### 🛠️ DevOps Engineers
-- Set up CI/CD pipelines and manage deployment workflows.
-- Monitor system uptime, logs, and performance.
-- Configure hosting, environments, and backups.
-- Ensure scalability and reliability of the infrastructure.
+#### Properties
+- `id`
+- `title`
+- `location`
+- `price`
+- `host_id` (foreign key to Users)
 
-### 📄 Product Owner
-- Defines the product vision, roadmap, and features.
-- Prioritizes the backlog based on business value.
-- Acts as the bridge between the business and development teams.
-- Accepts completed features and ensures alignment with user needs.
+#### Bookings
+- `id`
+- `user_id`
+- `property_id`
+- `check_in`
+- `check_out`
 
-### 📆 Scrum Master
-- Facilitates Agile ceremonies: daily standups, sprint planning, reviews.
-- Removes obstacles blocking team progress.
-- Promotes team collaboration and continuous improvement.
-- Ensures Scrum practices are followed and adapted as needed.
+#### Reviews
+- `id`
+- `user_id`
+- `property_id`
+- `rating`
+- `comment`
 
-## 🧩 UI Component Patterns
+#### Payments
+- `id`
+- `booking_id`
+- `amount`
+- `status`
 
-To build a cohesive and modular interface for the Airbnb Clone project, the following UI components will be designed and implemented:
+### Relationships:
+- A **user** can list multiple **properties**.
+- A **user** can make multiple **bookings**.
+- A **property** can have multiple **reviews**.
+- A **booking** is linked to a **payment**.
 
-### 🔹 Navbar
-- Fixed at the top for easy access across all pages.
-- Includes logo, navigation links, search bar, and user profile/menu.
-- Responsive design for mobile navigation (hamburger menu).
+---
 
-### 🏠 Property Card
-- Used in the Property Listing View.
-- Displays an image, property title, rating, price per night, and short description.
-- Clickable to navigate to the detailed view.
-- Designed for reusability across multiple lists and search results.
+## 🧰 Feature Breakdown
 
-###  Footer
-- Contains useful links (Privacy Policy, Terms, Support).
-- Displays contact information and social media icons.
-- Consistent layout across all pages.
+### User Management
+Enables users to register, log in, and manage their profile. Hosts can list their properties and manage bookings.
+
+### Property Management
+Hosts can list, update, and delete their properties. Each property includes details such as title, description, images, price, and location.
+
+### Booking System
+Users can check availability and book properties for specific dates. Hosts receive booking notifications.
+
+### Review System
+Users can leave reviews for properties they’ve stayed in. Reviews include star ratings and comments.
+
+### Search and Filter
+Allows users to search for properties based on location, date range, price, and more.
+
+### Payment Integration
+Securely handles payment processing through a payment gateway (e.g., Stripe).
+
+---
+
+## 🔐 API Security
+
+### Authentication
+Only registered users can access protected endpoints. Token-based authentication (e.g., JWT) will be used.
+
+### Authorization
+Role-based access control ensures only hosts can list properties and only users who booked can leave reviews.
+
+### Rate Limiting
+Prevents abuse of APIs by limiting the number of requests per IP/user.
+
+### Input Validation
+All user inputs will be validated to prevent injection attacks and ensure data consistency.
+
+### Importance
+- **Protect user data** (emails, passwords).
+- **Secure transactions** (payment data).
+- **Prevent abuse** of the platform (bot activity, spamming).
+
+---
+
+## 🔄 CI/CD Pipeline
+
+### What is CI/CD?
+CI/CD (Continuous Integration and Continuous Deployment) automates the software development process — code is tested, integrated, and deployed automatically with every update.
+
+### Tools Used
+- **GitHub Actions**: For running automated tests and builds.
+- **Docker**: For building consistent containers across dev, staging, and production.
+- **Heroku / Render / AWS**: Deployment platforms for the live app.
+
+### Why It’s Important
+- Ensures faster, more reliable deployments.
+- Reduces human error during deployment.
+- Improves team productivity and confidence in code changes.
+
+---
+
+## 📦 Getting Started
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/airbnb-clone-project.git
+
+# Navigate into the directory
+cd airbnb-clone-project
+
+# Install backend dependencies
+pip install -r requirements.txt
+
+# Install frontend dependencies
+cd client && npm install
+
+# Start development servers
+npm run dev  # For frontend
+python manage.py runserver  # For backend
